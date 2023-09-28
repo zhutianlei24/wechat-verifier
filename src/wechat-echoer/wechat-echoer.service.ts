@@ -5,7 +5,8 @@ import { createHash } from 'crypto';
 @Injectable()
 export class WechatEchoerService {
   wxSignatureCheck(signature: string, timestamp: string, nonce: string, echostr: string): string {
-    let rawArray = [signature, timestamp, nonce];
+    const token = "test"
+    let rawArray = [token, timestamp, nonce];
     rawArray.sort();
     let raw = rawArray.join("");
     let computedSignature = createHash('sha1').update(raw).digest('hex');
